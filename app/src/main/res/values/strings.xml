@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ElectronicsHunter</string>
+    <string name="klik">Klik</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wprowadz_nazwe_produktu"><i>Wprowadź nazwę produktu!</i></string>
+    <string name="electronicshunter">ElectronicsHunter</string>
+    <string name="szukaj">Szukaj</string>
+    <string name="logo">Logo</string>
+</resources>
