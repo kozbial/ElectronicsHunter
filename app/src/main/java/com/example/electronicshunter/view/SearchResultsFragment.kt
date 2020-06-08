@@ -9,12 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.os.bundleOf
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.electronicshunter.R
 import com.example.electronicshunter.remote.BackendService
 import com.example.electronicshunter.remote.RetrofitClient
 import com.example.electronicshunter.utils.CustomRecyclerViewAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search_results.*
 import kotlinx.android.synthetic.main.item_item.view.*
 
@@ -33,38 +38,42 @@ class SearchResultsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        rvItems.adapter = itemsAdapter
-        val client = RetrofitClient().provideRetrofit().create(BackendService::class.java)
-        client.getItemsByName("iphone xs")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                val mappedList: List<ItemModel> =
-                    it?.map { item -> ItemModel(item.name ?: "", item.price ?: 0.0, item.href ?: "") } ?: ArrayList()
-                itemsAdapter.addItems(mappedList)
-                makeProgressBarGone()
-            }, {
-                makeProgressBarGone()
-                it.printStackTrace()
-            })
-
+        if(arguments?.getString("searchedPhrase")!=null) {
+            val searchPhrase: String = arguments?.getString("searchedPhrase")!!
+            System.out.println(searchPhrase)
+            rvItems.adapter = itemsAdapter
+            val client = RetrofitClient().provideRetrofit().create(BackendService::class.java)
+            client.getItemsByName(searchPhrase)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    val mappedList: List<ItemModel> =
+                        it?.map { item -> ItemModel(item.shopName ?: "", item.name ?: "", item.price ?: 0.0, item.max_price ?: 0.0, item.min_price ?: 0.0, item.href ?: "") }
+                            ?: ArrayList()
+                    itemsAdapter.addItems(mappedList)
+                    makeProgressBarGone()
+                }, {
+                    makeProgressBarGone()
+                    it.printStackTrace()
+                })
+        }
     }
+
     private fun makeProgressBarGone(){
         progressBar.visibility = View.GONE
     }
 
-    @SuppressLint("SetTextI18n")
     private val itemsAdapter = CustomRecyclerViewAdapter(R.layout.item_item,
         onBind = {
                 view: View, item: ItemModel, index ->
 
             view.txtName.text = item.name
             view.txtPrice.text = "Cena: ${item.price} zł"
-            view.txtName.setOnClickListener{
-                val openURL = Intent(Intent.ACTION_VIEW)
-                openURL.data = Uri.parse(item.href)
-                startActivity(openURL)
+            view.setOnClickListener{
+                val navController: NavController = Navigation.findNavController(view)
+                val bundle = bundleOf("detailsName" to item.name, "detailsShopName" to item.shopName, "detailsPrice" to item.price.toString(),
+                    "detailsMinPrice" to item.minPrice.toString(), "detailsMaxPrice" to item.maxPrice.toString(), "detailsHref" to item.href)
+                navController.navigate(R.id.action_searchResultsFragment_to_itemDetailsFragment, bundle)
             }
         })
 }

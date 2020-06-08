@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 import com.example.electronicshunter.R
+import kotlinx.android.synthetic.main.fragment_search.*
 
 /**
  * A simple [Fragment] subclass.
@@ -29,11 +31,11 @@ class SearchFragment : Fragment() {
         val navController: NavController = Navigation.findNavController(view)
         val button: Button = view.findViewById(R.id.searchButton)
         button.setOnClickListener{
-            val searchText: EditText = view.findViewById(R.id.searchedText)
-            val searchPhrase: String = searchText.text.toString()
-            System.out.println(searchPhrase)
-            navController.navigate(R.id.searchResultsFragment)
-
+            if(searchedText.text.toString().isNotEmpty()) {
+                var bundle = bundleOf("searchedPhrase" to searchedText.text.toString())
+                searchedText.text.clear()
+                navController.navigate(R.id.action_searchFragment_to_searchResultsFragment2, bundle)
+            }
         }
     }
 

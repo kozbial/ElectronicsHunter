@@ -38,7 +38,7 @@
             android:layout_height="70dp"
             android:gravity="center"
             android:background="@drawable/rounded_button"
-            android:text="Obserwuj"
+            android:text="@string/obserwuj"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

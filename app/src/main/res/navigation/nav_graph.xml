@@ -18,5 +18,36 @@
             android:id="@+id/searchResultsFragment"
             android:name="com.example.electronicshunter.view.SearchResultsFragment"
             android:label="fragment_search_results"
-            tools:layout="@layout/fragment_search_results"/>
+            tools:layout="@layout/fragment_search_results">
+        <argument
+                android:name="searchedPhrase"
+                app:argType="string"/>
+        <action
+                android:id="@+id/action_searchResultsFragment_to_itemDetailsFragment"
+                app:destination="@id/itemDetailsFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/itemDetailsFragment"
+            android:name="com.example.electronicshunter.view.ItemDetailsFragment"
+            android:label="fragment_item_details"
+            tools:layout="@layout/fragment_item_details">
+        <argument
+            android:name="detailsName"
+            app:argType="string"/>
+        <argument
+            android:name="detailsShopName"
+            app:argType="string"/>
+        <argument
+            android:name="detailsPrice"
+            app:argType="string"/>
+        <argument
+            android:name="detailsMinPrice"
+            app:argType="string"/>
+        <argument
+            android:name="detailsMaxPrice"
+            app:argType="string"/>
+        <argument
+            android:name="detailsHref"
+            app:argType="string"/>
+    </fragment>
 </navigation>
