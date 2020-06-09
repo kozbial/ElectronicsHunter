@@ -12,12 +12,19 @@
     <string name="cena_aktualna"><b>Cena aktualna: </b></string>
     <string name="name"><u>name</u></string>
     <string name="sklep"><b>Sklep </b></string>
-    <string name="nie_uda_o_si_wyszuka_przedmiot_w_dla_wprowdzonej_frazy">Nie udało się wyszukać przedmiotów dla wprowdzonej frazy :(</string>
+    <string name="search_error">Nie udało się wyszukać przedmiotów dla wprowdzonej frazy :(</string>
     <string name="wyszukiwarka">Wyszukiwarka</string>
     <string name="obserwowane">Obserwowane</string>
     <string name="ustawienia">Ustawienia</string>
-    <string name="wprowad_cen_przy_jakiej_chcesz_otrzyma_powiadomienie">Wprowadź maksymalną cenę docelową</string>
     <string name="cena">Cena:</string>
     <string name="cena_docelowa_n">Cena docelowa </string>
     <string name="brak_obserwowanych_przedmiot_w">Brak obserwowanych przedmiotów.</string>
+    <string name="shop_list_info">Aplikacja przedstawia oferty handlowe pochodzące z następujących sklepów internetowych:</string>
+    <string name="settings_textview">Ustawienia</string>
+    <string name="mediaexpert_textview">media-expert.pl</string>
+    <string name="morele_textview">morele.net</string>
+    <string name="xkom_textview">x-kom.pl</string>
+    <string name="info_textview">Informacje</string>
+    <string name="alerts_textview">Powiadomienia</string>
+    <string name="observe_item_hint">Wprowadź maksymalną cenę docelową</string>
 </resources>

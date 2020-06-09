@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.electronicshunter.R
+import com.example.electronicshunter.data.DatabaseUpdateService
 import com.example.electronicshunter.remote.BackendService
 import com.example.electronicshunter.remote.RetrofitClient
 import com.example.electronicshunter.utils.CustomRecyclerViewAdapter
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val intent = Intent(this, DatabaseUpdateService::class.java)
+        startService(intent)
         setUpBottomNavMenu()
     }
 

@@ -60,7 +60,6 @@ class ObservedItemsFragment : Fragment() {
 
 
     private fun makeNotFoundErrorVisible(){
-
         observedItemsNotFoundError.visibility = View.VISIBLE
     }
     private fun makeProgressBarGone() {

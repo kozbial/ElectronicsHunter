@@ -2,14 +2,17 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- No title bar dark theme -->
     <style name="AppDarkTheme" parent="android:Theme.Black.NoTitleBar">
+
     </style>
 
+    <!-- Bottom navbar style -->
     <style name="BottomNavigation">
         <item name="android:background">#D5D5D5</item>
         <item name="itemTextColor">@android:color/black</item>
@@ -17,10 +20,19 @@
         <item name="paddingStart">10dp</item>
         <item name="paddingEnd">10dp</item>
     </style>
+
+    <!-- Top of screen logo style -->
     <style name="logo">
         <item name="android:textSize">42dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <!-- Notifications settings switch style -->
+    <style name="NotificationsSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/enable_thumb_orange</item>
+        <item name="colorSwitchThumbNormal">@color/disable_thumb_grey</item>
+        <item name="android:colorForeground">@color/disable_foreground_grey</item>
     </style>
 
 </resources>

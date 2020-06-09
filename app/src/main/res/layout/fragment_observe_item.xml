@@ -84,7 +84,7 @@
             android:gravity="center"
             android:ems="10"
             android:id="@+id/priceGoal"
-            android:hint="@string/wprowad_cen_przy_jakiej_chcesz_otrzyma_powiadomienie"
+            android:hint="@string/observe_item_hint"
             android:autofillHints="@android:string/autofill"
             android:textAlignment="gravity"
             android:padding="5dp"

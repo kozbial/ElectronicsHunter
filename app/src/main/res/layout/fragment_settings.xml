@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".view.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+            android:layout_width="391dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"
+            android:id="@+id/imageView"
+            android:gravity="center"
+            style="@style/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/logo"/>
+
+    <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="225dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="start"
+            android:layout_centerHorizontal="true">
+
+        <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/reminder"
+                android:theme="@style/NotificationsSwitch"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/alerts_textview"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+    </LinearLayout>
+
+
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/shop_list"
+            android:gravity="center"
+            android:layout_alignTop="@+id/button_layout"
+            android:textSize="17sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/shop_list_info"
+            android:textColor="@android:color/black"/>
 
-</FrameLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/xkom"
+            android:textSize="17sp"
+            android:layout_alignTop="@id/shop_list"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/xkom_textview"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/morele"
+            android:textSize="17sp"
+            android:layout_alignTop="@id/xkom"
+            android:gravity="center"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/morele_textview"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mediaexpert"
+            android:textSize="17sp"
+            android:layout_alignTop="@id/morele"
+            android:gravity="center"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/mediaexpert_textview"/>
+    <TextView
+            android:id="@+id/settings_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:background="@drawable/rounded_info_textview"
+            android:layout_alignBottom="@+id/button_layout"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="60dp"
+            android:text="@string/settings_textview"
+            android:textColor="@android:color/black"/>
+</RelativeLayout>
