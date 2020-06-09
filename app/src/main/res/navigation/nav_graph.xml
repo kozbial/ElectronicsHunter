@@ -13,6 +13,9 @@
         <action
                 android:id="@+id/action_searchFragment_to_searchResultsFragment2"
                 app:destination="@id/searchResultsFragment"/>
+        <action
+                android:id="@+id/action_searchFragment_to_observedItemsFragment"
+                app:destination="@id/observedItemsFragment"/>
     </fragment>
     <fragment
             android:id="@+id/searchResultsFragment"
@@ -25,6 +28,9 @@
         <action
                 android:id="@+id/action_searchResultsFragment_to_itemDetailsFragment"
                 app:destination="@id/itemDetailsFragment"/>
+        <action
+                android:id="@+id/action_searchResultsFragment_to_observeItemFragment"
+                app:destination="@id/observeItemFragment"/>
     </fragment>
     <fragment
             android:id="@+id/itemDetailsFragment"
@@ -49,5 +55,42 @@
         <argument
             android:name="detailsHref"
             app:argType="string"/>
+        <action
+                android:id="@+id/action_itemDetailsFragment_to_observeItemFragment"
+                app:destination="@id/observeItemFragment"/>
     </fragment>
+    <fragment
+            android:id="@+id/observeItemFragment"
+            android:name="com.example.electronicshunter.view.ObserveItemFragment"
+            android:label="fragment_observe_item"
+            tools:layout="@layout/fragment_observe_item">
+        <argument
+                android:name="itemName"
+                app:argType="string"/>
+        <argument
+                android:name="itemShopName"
+                app:argType="string"/>
+        <argument
+                android:name="itemPrice"
+                app:argType="string"/>
+        <argument
+                android:name="itemMinPrice"
+                app:argType="string"/>
+        <argument
+                android:name="itemMaxPrice"
+                app:argType="string"/>
+        <argument
+                android:name="itemHref"
+                app:argType="string"/>
+    </fragment>
+    <fragment
+            android:id="@+id/observedItemsFragment"
+            android:name="com.example.electronicshunter.view.ObservedItemsFragment"
+            android:label="fragment_observed_items"
+            tools:layout="@layout/fragment_observed_items"/>
+    <fragment
+            android:id="@+id/settingsFragment"
+            android:name="com.example.electronicshunter.view.SettingsFragment"
+            android:label="fragment_settings"
+            tools:layout="@layout/fragment_settings"/>
 </navigation>

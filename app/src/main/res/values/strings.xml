@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">ElectronicsHunter</string>
-    <string name="klik">Klik</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="wprowadz_nazwe_produktu"><i>Wprowadź nazwę produktu!</i></string>
+    <string name="wprowadz_nazwe_produktu">Wprowadź nazwę produktu</string>
     <string name="electronicshunter">ElectronicsHunter</string>
     <string name="szukaj">Szukaj</string>
     <string name="logo">Logo</string>
@@ -14,4 +12,12 @@
     <string name="cena_aktualna"><b>Cena aktualna: </b></string>
     <string name="name"><u>name</u></string>
     <string name="sklep"><b>Sklep </b></string>
+    <string name="nie_uda_o_si_wyszuka_przedmiot_w_dla_wprowdzonej_frazy">Nie udało się wyszukać przedmiotów dla wprowdzonej frazy :(</string>
+    <string name="wyszukiwarka">Wyszukiwarka</string>
+    <string name="obserwowane">Obserwowane</string>
+    <string name="ustawienia">Ustawienia</string>
+    <string name="wprowad_cen_przy_jakiej_chcesz_otrzyma_powiadomienie">Wprowadź maksymalną cenę docelową</string>
+    <string name="cena">Cena:</string>
+    <string name="cena_docelowa_n">Cena docelowa </string>
+    <string name="brak_obserwowanych_przedmiot_w">Brak obserwowanych przedmiotów.</string>
 </resources>

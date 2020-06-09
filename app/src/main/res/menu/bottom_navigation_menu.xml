@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/observedItemsPage"
+        android:icon="@drawable/observe_icon"
+        android:title="@string/obserwowane"/>
+    <item
+        android:id="@+id/searchingPage"
+        android:icon="@drawable/magnifier_icon"
+        android:title="@string/wyszukiwarka"/>
+
+    <item
+        android:id="@+id/settingsPage"
+        android:icon="@drawable/settings_icon"
+        android:title="@string/ustawienia"/>
+
+</menu>

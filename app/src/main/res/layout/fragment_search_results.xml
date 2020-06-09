@@ -28,7 +28,10 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="5dp"
+            android:layout_marginBottom="62dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/rvItems"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -45,5 +48,18 @@
             android:id="@+id/progressBar"
             app:layout_constraintBottom_toBottomOf="parent"
             style="?android:attr/progressBarStyle"/>
+
+    <TextView
+            android:text="@string/nie_uda_o_si_wyszuka_przedmiot_w_dla_wprowdzonej_frazy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/notFoundError"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteY="353dp"
+            tools:layout_editor_absoluteX="176dp"
+            android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

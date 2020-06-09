@@ -54,11 +54,20 @@ class SearchResultsFragment : Fragment() {
                     makeProgressBarGone()
                 }, {
                     makeProgressBarGone()
+                    makeNotFoundErrorVisible()
                     it.printStackTrace()
                 })
         }
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        itemsAdapter.clearItems()
+    }
+
+    private fun makeNotFoundErrorVisible(){
+        notFoundError.visibility = View.VISIBLE
+    }
     private fun makeProgressBarGone(){
         progressBar.visibility = View.GONE
     }
@@ -74,6 +83,12 @@ class SearchResultsFragment : Fragment() {
                 val bundle = bundleOf("detailsName" to item.name, "detailsShopName" to item.shopName, "detailsPrice" to item.price.toString(),
                     "detailsMinPrice" to item.minPrice.toString(), "detailsMaxPrice" to item.maxPrice.toString(), "detailsHref" to item.href)
                 navController.navigate(R.id.action_searchResultsFragment_to_itemDetailsFragment, bundle)
+            }
+            view.observeItemButton.setOnClickListener {
+                val navController: NavController = Navigation.findNavController(view)
+                val bundle = bundleOf("itemName" to item.name, "itemShopName" to item.shopName, "itemPrice" to item.price.toString(),
+                    "itemMinPrice" to item.minPrice.toString(), "itemMaxPrice" to item.maxPrice.toString(), "itemHref" to item.href)
+                navController.navigate(R.id.action_searchResultsFragment_to_observeItemFragment, bundle)
             }
         })
 }
