@@ -1,4 +1,4 @@
-package com.example.electronicshunter.view
+package com.example.electronicshunter.data.models
 
 data class ItemModel (
     val shopName: String?,

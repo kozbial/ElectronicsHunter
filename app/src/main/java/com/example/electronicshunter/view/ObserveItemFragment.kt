@@ -41,21 +41,21 @@ class ObserveItemFragment : Fragment() {
         observedItemRepository = ObservedItemRepository(parentFragment!!.activity!!.applicationContext)
         button.setOnClickListener{
             if(priceGoal.text.toString().isNotEmpty()) {
-                val observedItem: ObservedItem = ObservedItem(arguments?.getString("itemName")!!, arguments?.getString("itemShopName")!!,
-                    exgractPriceFromString(arguments?.getString("itemPrice")!!), exgractPriceFromString(arguments?.getString("itemMinPrice")!!),
-                    exgractPriceFromString(arguments?.getString("itemMaxPrice")!!), arguments?.getString("itemHref")!!, exgractPriceFromString(priceGoal.text.toString()))
+                val observedItem = ObservedItem(arguments?.getString("itemName")!!, arguments?.getString("itemShopName")!!,
+                    extractPriceFromString(arguments?.getString("itemPrice")!!), extractPriceFromString(arguments?.getString("itemMinPrice")!!),
+                    extractPriceFromString(arguments?.getString("itemMaxPrice")!!), arguments?.getString("itemHref")!!, extractPriceFromString(priceGoal.text.toString()))
                 observedItemRepository.save(observedItem)
-                navController.navigate(R.id.observedItemsFragment)
+                navController.navigate(R.id.action_observeItemFragment_to_observedItemsFragment)
             }
         }
     }
 
-    private fun exgractPriceFromString(input: String): Double {
+    private fun extractPriceFromString(input: String): Double {
         val p = Pattern.compile("-?\\d+(,\\d+)*?\\.?\\d+?")
-        var number: Double = 0.0
+        var number = 0.0
         val m: Matcher = p.matcher(input)
         while (m.find()) {
-            number=m.group().toDouble()
+            number = m.group().toDouble()
         }
         return number
     }

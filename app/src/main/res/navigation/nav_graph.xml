@@ -12,11 +12,33 @@
             tools:layout="@layout/fragment_search">
         <action
                 android:id="@+id/action_searchFragment_to_searchResultsFragment2"
-                app:destination="@id/searchResultsFragment"/>
+                app:destination="@id/searchResultsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
         <action
                 android:id="@+id/action_searchFragment_to_observedItemsFragment"
-                app:destination="@id/observedItemsFragment"/>
+                app:destination="@id/observedItemsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_searchFragment_to_settingsFragment"
+                app:destination="@id/settingsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
+    <dialog
+            android:id="@+id/itemObservedDialog"
+            android:name="com.example.electronicshunter.view.ItemObservedDialogFragment"
+            tools:layout="@layout/fragment_item_observed_dialog">
+    </dialog>
+
     <fragment
             android:id="@+id/searchResultsFragment"
             android:name="com.example.electronicshunter.view.SearchResultsFragment"
@@ -27,10 +49,21 @@
                 app:argType="string"/>
         <action
                 android:id="@+id/action_searchResultsFragment_to_itemDetailsFragment"
-                app:destination="@id/itemDetailsFragment"/>
+                app:destination="@id/itemDetailsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
         <action
                 android:id="@+id/action_searchResultsFragment_to_observeItemFragment"
-                app:destination="@id/observeItemFragment"/>
+                app:destination="@id/observeItemFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_searchResultsFragment_to_itemObservedDialogFragment"
+                app:destination="@id/itemObservedDialogFragment"/>
     </fragment>
     <fragment
             android:id="@+id/itemDetailsFragment"
@@ -57,7 +90,11 @@
             app:argType="string"/>
         <action
                 android:id="@+id/action_itemDetailsFragment_to_observeItemFragment"
-                app:destination="@id/observeItemFragment"/>
+                app:destination="@id/observeItemFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
             android:id="@+id/observeItemFragment"
@@ -82,15 +119,31 @@
         <argument
                 android:name="itemHref"
                 app:argType="string"/>
+        <action
+                android:id="@+id/action_observeItemFragment_to_observedItemsFragment"
+                app:destination="@id/observedItemsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
             android:id="@+id/observedItemsFragment"
             android:name="com.example.electronicshunter.view.ObservedItemsFragment"
             android:label="fragment_observed_items"
-            tools:layout="@layout/fragment_observed_items"/>
+            tools:layout="@layout/fragment_observed_items">
+        <action
+                android:id="@+id/action_observedItemsFragment_self"
+                app:destination="@id/observedItemsFragment"/>
+    </fragment>
     <fragment
             android:id="@+id/settingsFragment"
             android:name="com.example.electronicshunter.view.SettingsFragment"
             android:label="fragment_settings"
             tools:layout="@layout/fragment_settings"/>
+    <fragment
+            android:id="@+id/itemObservedDialogFragment"
+            android:name="com.example.electronicshunter.view.ItemObservedDialogFragment"
+            android:label="fragment_item_observed_dialog"
+            tools:layout="@layout/fragment_item_observed_dialog"/>
 </navigation>

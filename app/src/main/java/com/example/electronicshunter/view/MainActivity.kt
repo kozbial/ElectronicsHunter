@@ -8,9 +8,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.*
 import androidx.navigation.ui.NavigationUI
 import com.example.electronicshunter.R
 import com.example.electronicshunter.data.DatabaseUpdateService
@@ -41,22 +40,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpBottomNavMenuItemListener(navController: NavController){
+        val bottomNavOptions: NavOptions = getBottomNavMenuOptions()
         bottom_navigation.setOnNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.observedItemsPage -> {
-                    navController.navigate(R.id.observedItemsFragment)
-                    true
+                    if(navController.currentDestination?.id == R.id.observedItemsFragment)
+                        false
+                    else{
+                        navController.navigate(R.id.observedItemsFragment, null, bottomNavOptions)
+                        true
+                    }
                 }
                 R.id.searchingPage -> {
-                    navController.navigate(R.id.searchFragment)
-                    true
+                    if(navController.currentDestination?.id == R.id.searchFragment)
+                        false
+                    else{
+                        navController.navigate(R.id.searchFragment, null, bottomNavOptions)
+                        true
+                    }
                 }
                 R.id.settingsPage -> {
-                    navController.navigate(R.id.settingsFragment)
-                    true
+                    if(navController.currentDestination?.id == R.id.settingsFragment)
+                        false
+                    else{
+                        navController.navigate(R.id.settingsFragment, null, bottomNavOptions)
+                        true
+                    }
                 }
                 else -> false
             }
         }
+    }
+
+    private fun getBottomNavMenuOptions(): NavOptions {
+        val options: NavOptions = NavOptions.Builder()
+            .setEnterAnim(R.anim.bottom_up)
+            .setExitAnim(R.anim.bottom_down)
+            .build()
+        return options
     }
 }

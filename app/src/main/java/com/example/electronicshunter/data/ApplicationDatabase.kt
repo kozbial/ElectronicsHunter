@@ -18,7 +18,7 @@ import com.example.electronicshunter.data.entities.ObservedItem
 abstract class ApplicationDatabase : RoomDatabase() {
 
     companion object {
-        private const val databaseName = "electronicshunter_db"
+        private const val databaseName = "electronicshunter_roomdb"
 
         fun getDatabase(context: Context) =
             Room.databaseBuilder(context, ApplicationDatabase::class.java, databaseName)

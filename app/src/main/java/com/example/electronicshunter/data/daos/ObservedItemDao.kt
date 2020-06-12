@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.example.electronicshunter.data.entities.ObservedItem
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 @Dao
 interface ObservedItemDao {
@@ -19,4 +20,10 @@ interface ObservedItemDao {
 
     @Query("DELETE FROM observed_items")
     fun deleteAll()
+
+    @Query("DELETE FROM observed_items WHERE href = :href")
+    fun deleteItemByHref(href: String)
+
+    @Query("SELECT COUNT(*) FROM observed_items WHERE href = :href")
+    fun countItemsByHref(href: String): Int
 }

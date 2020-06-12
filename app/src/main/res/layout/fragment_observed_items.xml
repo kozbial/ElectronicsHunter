@@ -53,7 +53,7 @@
             android:text="@string/brak_obserwowanych_przedmiot_w"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/observedItemsNotFoundError"
+            android:id="@+id/noObservedItemsInfo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,4 +61,5 @@
             tools:layout_editor_absoluteY="353dp"
             tools:layout_editor_absoluteX="176dp"
             android:visibility="invisible"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

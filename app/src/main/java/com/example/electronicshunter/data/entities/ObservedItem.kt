@@ -1,10 +1,11 @@
 package com.example.electronicshunter.data.entities
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "observed_items")
+@Entity(tableName = "observed_items", indices = [Index(value = ["href"], unique = true)])
 data class ObservedItem(
     var name: String,
     var shopName: String,

@@ -27,4 +27,7 @@
     <string name="info_textview">Informacje</string>
     <string name="alerts_textview">Powiadomienia</string>
     <string name="observe_item_hint">Wprowadź maksymalną cenę docelową</string>
+    <string name="goal_price">Cena docelowa1:</string>
+    <string name="item_already_observed">Obserwujesz już ten przedmiot.</string>
+    <string name="ok">OK</string>
 </resources>
