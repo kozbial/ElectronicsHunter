@@ -117,21 +117,4 @@ class SearchResultsFragment : Fragment() {
 
             }
         })
-
-    fun isItemObserved(href: String): Int{
-        val observedItemRepository1 = ObservedItemRepository(parentFragment!!.activity!!.applicationContext)
-        var isItemObserved = 2
-        Single.fromCallable {
-            observedItemRepository1.isItemObserved(href)
-        }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                if(it ==1)isItemObserved=1
-            },{
-
-            })
-        System.out.println("Po sprwadzeniu ${isItemObserved}")
-        return isItemObserved
-    }
 }

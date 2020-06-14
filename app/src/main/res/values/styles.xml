@@ -16,7 +16,6 @@
     <style name="BottomNavigation">
         <item name="android:background">#D5D5D5</item>
         <item name="itemTextColor">@android:color/black</item>
-        <item name="itemIconTint">@android:color/black</item>
         <item name="paddingStart">10dp</item>
         <item name="paddingEnd">10dp</item>
     </style>

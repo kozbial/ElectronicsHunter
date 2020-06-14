@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/observedItemsPage"
+        android:id="@+id/observedItemsFragment"
         android:icon="@drawable/observe_icon"
         android:title="@string/obserwowane"/>
     <item
-        android:id="@+id/searchingPage"
+        android:id="@+id/searchFragment"
         android:icon="@drawable/magnifier_icon"
         android:title="@string/wyszukiwarka"/>
 
     <item
-        android:id="@+id/settingsPage"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/settings_icon"
         android:title="@string/ustawienia"/>
 

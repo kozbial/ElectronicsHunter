@@ -12,6 +12,7 @@ import com.example.electronicshunter.R
 import com.example.electronicshunter.data.entities.ObservedItem
 import com.example.electronicshunter.data.repositories.ObservedItemRepository
 import kotlinx.android.synthetic.main.fragment_observe_item.*
+import kotlinx.android.synthetic.main.fragment_observe_item.view.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -47,6 +48,9 @@ class ObserveItemFragment : Fragment() {
                 observedItemRepository.save(observedItem)
                 navController.navigate(R.id.action_observeItemFragment_to_observedItemsFragment)
             }
+        }
+        view.returnButton.setOnClickListener {
+            navController.popBackStack()
         }
     }
 

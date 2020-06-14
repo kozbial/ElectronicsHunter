@@ -16,9 +16,6 @@ import kotlinx.android.synthetic.main.fragment_item_details.*
 import kotlinx.android.synthetic.main.fragment_item_details.view.*
 import kotlinx.android.synthetic.main.item_item.view.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class ItemDetailsFragment : Fragment() {
 
     override fun onCreateView(
@@ -30,6 +27,7 @@ class ItemDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navController: NavController = Navigation.findNavController(view)
         detailsName.text = arguments?.getString("detailsName")!!
         detailsPrice.text = detailsPrice.text.toString() + arguments?.getString("detailsPrice")!! + "zł"
         detailsMinPrice.text = detailsMinPrice.text.toString() + arguments?.getString("detailsMinPrice")!! + "zł"
@@ -39,6 +37,9 @@ class ItemDetailsFragment : Fragment() {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(arguments?.getString("detailsHref"))
             startActivity(openURL)
+        }
+        view.returnButton.setOnClickListener {
+            navController.popBackStack()
         }
 
     }

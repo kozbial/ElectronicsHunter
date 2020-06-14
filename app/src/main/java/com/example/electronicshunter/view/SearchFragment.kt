@@ -30,7 +30,6 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navController: NavController = Navigation.findNavController(view)
         val button: Button = view.findViewById(R.id.searchButton)
-        //setSearchNavBarIconActive()
         button.setOnClickListener{
             if(searchedText.text.toString().isNotEmpty()) {
                 var bundle = bundleOf("searchedPhrase" to searchedText.text.toString())
@@ -40,13 +39,4 @@ class SearchFragment : Fragment() {
         }
 
     }
-    /*
-    private fun setSearchPageNavBarIconGone(){
-        bottom_navigation.menu.removeItem(R.id.searchingPage)
-    }
-    private fun setSearchNavBarIconActive(){
-        bottom_navigation.selectedItemId = R.id.searchingPage
-    }
-
-     */
 }

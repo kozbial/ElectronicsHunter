@@ -54,7 +54,10 @@ class ObservedItemsFragment : Fragment() {
                 if(mappedList.isEmpty()){
                     makeNoObservedItemsInfoVisible()
                 }
-                observedItemsAdapter.addItems(mappedList)
+                else{
+                    observedItemsAdapter.addItems(mappedList.sortedBy { (it.price?.minus(it.priceGoal)) })
+                }
+
                 makeProgressBarGone()
             },{
                 makeProgressBarGone()

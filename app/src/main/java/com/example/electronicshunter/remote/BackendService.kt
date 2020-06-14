@@ -5,6 +5,7 @@ import com.example.electronicshunter.data.dtos.ItemResponseDTO
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface BackendService {
 
@@ -13,4 +14,7 @@ interface BackendService {
 
     @GET("name/{name}")
     fun getItemsByName(@Path("name")name: String): Single<List<ItemResponseDTO>>
+
+    @GET("href")
+    fun getCurrentItemPrice(@Query("href")href: String): Single<ItemResponseDTO>
 }

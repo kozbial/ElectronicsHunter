@@ -1,36 +1,27 @@
 package com.example.electronicshunter.view
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
+import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import androidx.fragment.app.FragmentTransaction
+import android.util.Log
 import androidx.navigation.*
 import androidx.navigation.ui.NavigationUI
 import com.example.electronicshunter.R
-import com.example.electronicshunter.data.DatabaseUpdateService
-import com.example.electronicshunter.remote.BackendService
-import com.example.electronicshunter.remote.RetrofitClient
-import com.example.electronicshunter.utils.CustomRecyclerViewAdapter
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.example.electronicshunter.services.DatabaseUpdateService
+import com.example.electronicshunter.services.JobSchedulerService
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.item_item.view.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val intent = Intent(this, DatabaseUpdateService::class.java)
-        startService(intent)
         setUpBottomNavMenu()
+        setJobScheduler(applicationContext)
     }
 
     private fun setUpBottomNavMenu(){
@@ -43,15 +34,15 @@ class MainActivity : AppCompatActivity() {
         val bottomNavOptions: NavOptions = getBottomNavMenuOptions()
         bottom_navigation.setOnNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
-                R.id.observedItemsPage -> {
+                R.id.observedItemsFragment -> {
                     if(navController.currentDestination?.id == R.id.observedItemsFragment)
                         false
-                    else{
+                    else {
                         navController.navigate(R.id.observedItemsFragment, null, bottomNavOptions)
                         true
                     }
                 }
-                R.id.searchingPage -> {
+                R.id.searchFragment -> {
                     if(navController.currentDestination?.id == R.id.searchFragment)
                         false
                     else{
@@ -59,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                 }
-                R.id.settingsPage -> {
+                R.id.settingsFragment -> {
                     if(navController.currentDestination?.id == R.id.settingsFragment)
                         false
                     else{
@@ -78,5 +69,23 @@ class MainActivity : AppCompatActivity() {
             .setExitAnim(R.anim.bottom_down)
             .build()
         return options
+    }
+
+    fun setJobScheduler(context: Context){
+        Log.v("JOBSCHEDULER", "Job scheduler is starting")
+        val jobScheduler: JobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        val serviceName = ComponentName(context, DatabaseUpdateService::class.java)
+        val jobInfo: JobInfo
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            jobInfo = JobInfo.Builder(1, serviceName)
+                .setPeriodic(900000)
+                .build()
+        }
+        else{
+            jobInfo = JobInfo.Builder(1, serviceName)
+                .setPeriodic(60000)
+                .build()
+        }
+        jobScheduler.schedule(jobInfo)
     }
 }

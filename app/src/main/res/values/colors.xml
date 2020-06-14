@@ -9,4 +9,8 @@
     <color name="disable_thumb_grey">#1c000000</color>
     <color name="enable_thumb_orange">@android:color/holo_orange_light</color>
 
+    <!-- Bottomnavbar icons colors -->
+    <color name="checked_item">@android:color/holo_orange_light</color>
+    <color name="unchecked_item">@android:color/black</color>
+
 </resources>

@@ -27,6 +27,7 @@
             android:background="@drawable/top_rounded_corners"
             app:menu="@menu/bottom_navigation_menu"
             app:itemIconSize="22dp"
+            app:itemIconTint="@color/nav_item_colors"
             app:labelVisibilityMode="unlabeled"
             style="@style/BottomNavigation"
             app:layout_constraintBottom_toBottomOf="parent"/>

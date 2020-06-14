@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.electronicshunter.data.ApplicationDatabase.Companion.getDatabase
 import com.example.electronicshunter.data.daos.ObservedItemDao
 import com.example.electronicshunter.data.entities.ObservedItem
+import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.Observable
@@ -26,12 +27,14 @@ class ObservedItemRepository(context: Context) {
             )
     }
 
-    fun getAll(): Observable<List<ObservedItem>> = observedItemDao.getAll()
+    fun getAll(): Maybe<List<ObservedItem>> = observedItemDao.getAll()
 
     fun deleteAll() = observedItemDao.deleteAll()
 
     fun deleteItemByHref(href: String) = observedItemDao.deleteItemByHref(href)
 
     fun isItemObserved(href: String) = observedItemDao.countItemsByHref(href)
+
+    fun updateItemPrices(price: Double, href: String) = observedItemDao.updateItemPrices(price, href)
 
 }
