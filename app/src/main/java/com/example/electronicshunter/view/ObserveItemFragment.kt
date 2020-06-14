@@ -30,11 +30,11 @@ class ObserveItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navController: NavController = Navigation.findNavController(view)
         val button: Button = view.findViewById(R.id.observeItemButton)
-        //setSearchNavBarIconActive()
+
         itemName.text = arguments?.getString("itemName")!!
-        itemPrice.text = itemPrice.text.toString() + arguments?.getString("itemPrice")!! + "zł"
-        itemMinPrice.text = itemMinPrice.text.toString() + arguments?.getString("itemMinPrice")!! + "zł"
-        itemMaxPrice.text = itemMaxPrice.text.toString() + arguments?.getString("itemMaxPrice")!! + "zł"
+        itemPriceValue.text = arguments?.getString("itemPrice")!! + "zł"
+        itemMinPriceValue.text = arguments?.getString("itemMinPrice")!! + "zł"
+        itemMaxPriceValue.text = arguments?.getString("itemMaxPrice")!! + "zł"
         itemShopName.text = itemShopName.text.toString() + arguments?.getString("itemShopName")!!
         observedItemRepository = ObservedItemRepository(parentFragment!!.activity!!.applicationContext)
         button.setOnClickListener{

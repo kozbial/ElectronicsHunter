@@ -54,7 +54,8 @@ class SearchResultsFragment : Fragment() {
                                 item.price ?: 0.0,
                                 item.max_price ?: 0.0,
                                 item.min_price ?: 0.0,
-                                item.href ?: ""
+                                item.href ?: "",
+                                item.image_href ?: ""
                             )
                         }
                             ?: ArrayList()
@@ -86,11 +87,11 @@ class SearchResultsFragment : Fragment() {
         onBind = {
                 view: View, item: ItemModel, index ->
             view.txtName.text = item.name
-            view.txtPrice.text = "Cena: ${item.price} zł"
+            view.txtPrice.text = "${item.price} zł"
             view.setOnClickListener{
                 val navController: NavController = Navigation.findNavController(view)
                 val bundle = bundleOf("detailsName" to item.name, "detailsShopName" to item.shopName, "detailsPrice" to item.price.toString(),
-                    "detailsMinPrice" to item.minPrice.toString(), "detailsMaxPrice" to item.maxPrice.toString(), "detailsHref" to item.href)
+                    "detailsMinPrice" to item.minPrice.toString(), "detailsMaxPrice" to item.maxPrice.toString(), "detailsHref" to item.href, "detailsImageHref" to item.imageHref)
                 navController.navigate(R.id.action_searchResultsFragment_to_itemDetailsFragment, bundle)
             }
 

@@ -88,6 +88,9 @@
         <argument
             android:name="detailsHref"
             app:argType="string"/>
+        <argument
+            android:name="detailsImageHref"
+            app:argType="string"/>
         <action
                 android:id="@+id/action_itemDetailsFragment_to_observeItemFragment"
                 app:destination="@id/observeItemFragment"

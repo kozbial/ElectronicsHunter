@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             tools:text="name"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +26,11 @@
             android:layout_height="wrap_content"
             tools:text="price"
             android:text="@string/cena"
-            android:layout_marginBottom="4dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/observedItemName"
             app:layout_constraintTop_toBottomOf="@+id/observedItemName"
             app:layout_constraintBottom_toTopOf="@+id/observedItemMinPrice"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
     <TextView
             android:id="@+id/observedItemMinPrice"
@@ -39,12 +38,10 @@
             android:layout_height="wrap_content"
             tools:text="min_price"
             android:text="@string/cena_minimalna"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
             app:layout_constraintStart_toStartOf="@+id/observedItemPrice"
             app:layout_constraintTop_toBottomOf="@+id/observedItemPrice"
             app:layout_constraintBottom_toTopOf="@+id/observedItemMaxPrice"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
     <TextView
             android:id="@+id/observedItemMaxPrice"
@@ -52,12 +49,11 @@
             android:layout_height="wrap_content"
             tools:text="max_price"
             android:text="@string/cena_maksymalna"
-            android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintStart_toStartOf="@+id/observedItemPrice"
             app:layout_constraintTop_toBottomOf="@+id/observedItemMinPrice"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/black"/>
 
     <TextView
             android:id="@+id/observedItemPriceGoal"
@@ -74,7 +70,7 @@
             app:layout_constraintBottom_toBottomOf="@id/observedItemMinPrice"
             app:layout_constraintTop_toTopOf="@+id/observedItemMinPrice"
             app:layout_constraintEnd_toStartOf="@id/deleteObservedItemButton"
-            android:textColor="@android:color/holo_orange_light"
+            android:textColor="#26547c"
             android:textStyle="bold"
             android:textSize="15sp"/>
 

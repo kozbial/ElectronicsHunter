@@ -7,11 +7,11 @@
     <string name="szukaj">Szukaj</string>
     <string name="logo">Logo</string>
     <string name="obserwuj">Obserwuj</string>
-    <string name="cena_maksymalna"><b>Cena maksymalna: </b></string>
-    <string name="cena_minimalna"><b>Cena minimalna: </b></string>
-    <string name="cena_aktualna"><b>Cena aktualna: </b></string>
+    <string name="cena_maksymalna">Cena maksymalna</string>
+    <string name="cena_minimalna">Cena minimalna</string>
+    <string name="cena_aktualna">Cena aktualna</string>
     <string name="name"><u>name</u></string>
-    <string name="sklep"><b>Sklep </b></string>
+    <string name="sklep"><b>sklep </b></string>
     <string name="search_error">Nie udało się wyszukać przedmiotów dla wprowdzonej frazy :(</string>
     <string name="wyszukiwarka">Wyszukiwarka</string>
     <string name="obserwowane">Obserwowane</string>
@@ -30,4 +30,5 @@
     <string name="goal_price">Cena docelowa1:</string>
     <string name="item_already_observed">Obserwujesz już ten przedmiot.</string>
     <string name="ok">OK</string>
+    <string name="detailsitemimage">detailsItemImage</string>
 </resources>

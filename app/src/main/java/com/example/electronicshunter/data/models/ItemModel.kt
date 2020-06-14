@@ -6,5 +6,6 @@ data class ItemModel (
     val price: Double?,
     val maxPrice: Double?,
     val minPrice: Double?,
-    val href: String?
+    val href: String?,
+    val imageHref: String?
 )

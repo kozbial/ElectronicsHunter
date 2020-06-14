@@ -14,5 +14,7 @@ data class ItemResponseDTO (
     @SerializedName("minPrice")
     var min_price: Double?,
     @SerializedName("href")
-    var href: String?
+    var href: String?,
+    @SerializedName("imageHref")
+    var image_href: String?
 )

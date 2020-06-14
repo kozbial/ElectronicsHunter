@@ -55,7 +55,6 @@ class NotificationService : JobService() {
     private fun sendNotifications(){
         observedItemRepository = ObservedItemRepository(context)
         observedItemRepository.getAll()
-            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 for(item: ObservedItem in it){

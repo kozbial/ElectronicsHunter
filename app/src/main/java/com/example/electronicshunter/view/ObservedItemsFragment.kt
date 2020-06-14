@@ -81,10 +81,7 @@ class ObservedItemsFragment : Fragment() {
             if(item.price!! <= item.priceGoal) {
                 view.observedItemName.typeface = Typeface.DEFAULT_BOLD
                 view.observedItemName.setTextSize(20.0F)
-                view.observedItemName.setTextColor(Color.parseColor("#FFBB33"))
-                view.observedItemMaxPrice.setTextColor(Color.parseColor("#FFBB33"))
-                view.observedItemPrice.setTextColor(Color.parseColor("#FFBB33"))
-                view.observedItemMinPrice.setTextColor(Color.parseColor("#FFBB33"))
+                view.observedItemName.setTextColor(Color.parseColor("#26547c"))
             }
             view.observedItemPrice.text = "Cena: ${item.price} zł"
             view.observedItemMaxPrice.text = "Cena maksymalna: ${item.maxPrice} zł"
