@@ -16,9 +16,6 @@ import kotlinx.android.synthetic.main.fragment_observe_item.view.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-/**
- * A simple [Fragment] subclass.
- */
 class ObserveItemFragment : Fragment() {
     lateinit var observedItemRepository: ObservedItemRepository
     override fun onCreateView(

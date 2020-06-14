@@ -31,7 +31,10 @@ class ObservedItemRepository(context: Context) {
 
     fun deleteAll() = observedItemDao.deleteAll()
 
-    fun deleteItemByHref(href: String) = observedItemDao.deleteItemByHref(href)
+    fun deleteItemByHref(href: String) {
+        observedItemDao.deleteItemByHref(href)
+        Log.d("RxJava", "Item deleted")
+    }
 
     fun isItemObserved(href: String) = observedItemDao.countItemsByHref(href)
 

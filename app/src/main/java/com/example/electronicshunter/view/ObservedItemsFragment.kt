@@ -63,7 +63,7 @@ class ObservedItemsFragment : Fragment() {
                 makeProgressBarGone()
                 makeNoObservedItemsInfoVisible()
             })
-        }
+    }
 
     private fun makeNoObservedItemsInfoVisible(){
         if(noObservedItemsInfo != null) noObservedItemsInfo.visibility = View.VISIBLE

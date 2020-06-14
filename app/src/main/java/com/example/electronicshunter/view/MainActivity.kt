@@ -12,7 +12,7 @@ import androidx.navigation.*
 import androidx.navigation.ui.NavigationUI
 import com.example.electronicshunter.R
 import com.example.electronicshunter.services.DatabaseUpdateService
-import com.example.electronicshunter.services.JobSchedulerService
+import com.example.electronicshunter.services.NotificationService
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,14 +20,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getNotificationsIntents()
         setUpBottomNavMenu()
-        setJobScheduler(applicationContext)
+        setUpJobSchedulers()
+    }
+
+    private fun getNotificationsIntents(){
+        val notifyIntent = intent
+        val extras = notifyIntent.getStringExtra("observedItemsFragment")
+        if(extras == "ObservedItemsFragment"){
+            val navController: NavController = Navigation.findNavController(this, R.id.navHostFragment)
+            navController.navigate(R.id.observedItemsFragment)
+        }
     }
 
     private fun setUpBottomNavMenu(){
         val navController: NavController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupWithNavController(bottom_navigation, navController)
         setUpBottomNavMenuItemListener(navController)
+    }
+
+    private fun setUpJobSchedulers(){
+        setDatabaseUpdateScheduler(this)
+        setNotificationScheduler(this)
     }
 
     private fun setUpBottomNavMenuItemListener(navController: NavController){
@@ -64,25 +79,46 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getBottomNavMenuOptions(): NavOptions {
-        val options: NavOptions = NavOptions.Builder()
+        return NavOptions.Builder()
             .setEnterAnim(R.anim.bottom_up)
             .setExitAnim(R.anim.bottom_down)
             .build()
-        return options
     }
 
-    fun setJobScheduler(context: Context){
-        Log.v("JOBSCHEDULER", "Job scheduler is starting")
+    private fun setNotificationScheduler(context: Context){
+        Log.v("NOTIFICATIONSCHEDULER", "Notification Scheduler is starting")
+        setUpNotificationsPreferences()
+        val jobScheduler: JobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        val serviceName = ComponentName(context, NotificationService::class.java)
+        val jobInfo: JobInfo = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            JobInfo.Builder(0, serviceName)
+                .setPeriodic(1200000)
+                .build()
+        } else{
+            JobInfo.Builder(0, serviceName)
+                .setPeriodic(60000)
+                .build()
+        }
+        jobScheduler.schedule(jobInfo)
+    }
+
+    private fun setUpNotificationsPreferences(){
+        val sharedPreferences = getSharedPreferences("notificationsPreferences", 0)
+        val editor = sharedPreferences?.edit()
+        editor?.putBoolean("notificationsSwitch", true)?.apply()
+    }
+
+    private fun setDatabaseUpdateScheduler(context: Context){
+        Log.v("DATABASEUPDATESCHEDULER", "Database update scheduler is starting")
         val jobScheduler: JobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         val serviceName = ComponentName(context, DatabaseUpdateService::class.java)
         val jobInfo: JobInfo
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            jobInfo = JobInfo.Builder(1, serviceName)
+        jobInfo = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            JobInfo.Builder(1, serviceName)
                 .setPeriodic(900000)
                 .build()
-        }
-        else{
-            jobInfo = JobInfo.Builder(1, serviceName)
+        } else{
+            JobInfo.Builder(1, serviceName)
                 .setPeriodic(60000)
                 .build()
         }

@@ -18,7 +18,7 @@ class DatabaseUpdateService : JobService(){
     lateinit var observedItemRepository: ObservedItemRepository
     lateinit var context: Context
 
-    companion object{
+    companion object {
         const val TAG: String = "DatabaseUpdateService"
     }
 
@@ -51,6 +51,7 @@ class DatabaseUpdateService : JobService(){
                 Log.e(TAG,"Failed to get observed items from db.")
             })
     }
+
     @SuppressLint("CheckResult")
     private fun updatePrices(items: List<ObservedItem>){
         for(item: ObservedItem in items){
